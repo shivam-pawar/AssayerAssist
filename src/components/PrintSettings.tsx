@@ -2,8 +2,14 @@ import React from "react";
 import PrintCustomization from "./PrintCustomization";
 import DownloadData from "./DownloadData";
 import UploadPrintSettings from "./UploadPrintSettings";
+import { useSelector } from "react-redux";
+import { customerDetailsType } from "../interfaces/customerDetails";
 
 const PrintSettings: React.FC = () => {
+  const customerDetails: customerDetailsType = useSelector(
+    (state: any) => state.customerDetails
+  );
+  console.log(customerDetails);
   const a4PageStyle: React.CSSProperties = {
     width: "210mm",
     height: "297mm",
