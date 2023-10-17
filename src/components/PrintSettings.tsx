@@ -50,11 +50,12 @@ const PrintSettings: React.FC = () => {
     <div style={parent}>
       <div style={a4PageStyle}>
         <div style={contentStyle}>
+          <h1>{customerDetails.customerName}</h1>
           <h1 style={h1Style}>A4 Page Layout</h1>
+          <PrintCustomization />
         </div>
       </div>
       <div style={printSettings}>
-        <PrintCustomization />
         <UploadPrintSettings />
         <DownloadData />
       </div>

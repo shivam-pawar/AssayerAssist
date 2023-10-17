@@ -15,7 +15,12 @@ export const customerDetailsSlice = createSlice({
   initialState,
   reducers: {
     updateCustomerDetails: (state, action) => {
-      state = action.payload;
+      state.serialNumber = action.payload.serialNumber;
+      state.customerName = action.payload.customerName;
+      state.sampleName = action.payload.sampleName;
+      state.weight = action.payload.weight;
+      state.recordDate = action.payload.recordDate;
+      state.sampleType = action.payload.sampleType;
     },
   },
 });

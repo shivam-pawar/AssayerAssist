@@ -15,8 +15,8 @@ const PrintCustomization: React.FC = () => {
       id: 1,
       defaultText: "Text 1",
       defaultPosition: {
-        top: localStorage.getItem("top_1") || "100px",
-        left: localStorage.getItem("left_1") || "100px",
+        top: localStorage.getItem("top_1") ?? "100px",
+        left: localStorage.getItem("left_1") ?? "100px",
       },
       defaultFontSize: Number(localStorage.getItem("fontSize_1")) || 16,
       defaultBold: Boolean(localStorage.getItem("bold_1")) || true,
@@ -25,8 +25,8 @@ const PrintCustomization: React.FC = () => {
       id: 2,
       defaultText: "Text 2",
       defaultPosition: {
-        top: localStorage.getItem("top_2") || "200px",
-        left: localStorage.getItem("left_2") || "200px",
+        top: localStorage.getItem("top_2") ?? "200px",
+        left: localStorage.getItem("left_2") ?? "200px",
       },
       defaultFontSize: Number(localStorage.getItem("fontSize_2")) || 22,
       defaultBold: Boolean(localStorage.getItem("bold_2")) || true,
@@ -38,7 +38,7 @@ const PrintCustomization: React.FC = () => {
     textElements.forEach((element) => {
       const top = localStorage.getItem(`top_${element.id}`);
       const left = localStorage.getItem(`left_${element.id}`);
-      element.defaultPosition = { top: top || "100px", left: left || "100px" };
+      element.defaultPosition = { top: top ?? "100px", left: left ?? "100px" };
     });
     setTextElements([...textElements]);
   }, []);
