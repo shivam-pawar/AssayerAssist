@@ -1,42 +1,50 @@
 import React from "react";
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
-import FormLabel from "@mui/material/FormLabel";
-import { pink } from "@mui/material/colors";
+import { useDispatch } from "react-redux";
+import { updateCustomerDetails } from "../slices/customerDetails";
+
 const SampleTypeSelector = () => {
-  const [value, setValue] = React.useState("gold");
+  const dispatch = useDispatch();
+  const [value, setValue] = React.useState("gold"); // Set initial value to "gold"
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue((event.target as HTMLInputElement).value);
+    setValue(event.target.value);
+    dispatch(
+      updateCustomerDetails({
+        sampleType: event.target.value,
+      })
+    );
   };
 
   return (
-    <FormControl>
-      <FormLabel>Sample Type</FormLabel>
-      <RadioGroup row value={value} onChange={handleChange}>
-        <FormControlLabel
+    <div className="p-2">
+      <div className="flex items-center ps-4 border rounded border-gray-600">
+        <input
+          onChange={(e) => handleChange(e)}
+          id="gold-1"
+          type="radio"
           value="gold"
-          control={
-            <Radio
-              sx={{
-                color: pink[800],
-                "&.Mui-checked": {
-                  color: pink[600],
-                },
-              }}
-            />
-          }
-          label="Gold"
+          name="sampleType"
+          checked={value === "gold"}
+          className="outline-none border-none focus:outline-none w-16 h-16 text-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
         />
-        <FormControlLabel
+        <label className="w-full py-4 ms-2 pr-2 text-sm font-medium dark:text-gray-900 text-gray-300">
+          Gold
+        </label>
+
+        <input
+          onChange={(e) => handleChange(e)}
+          id="silver-2"
+          type="radio"
           value="silver"
-          control={<Radio color="success" />}
-          label="Silver"
+          name="sampleType"
+          checked={value === "silver"}
+          className="outline-none border-none focus:outline-none w-16 h-16 text-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
         />
-      </RadioGroup>
-    </FormControl>
+        <label className="w-full py-4 ms-2 text-sm font-medium dark:text-gray-900 text-gray-300">
+          Silver
+        </label>
+      </div>
+    </div>
   );
 };
 

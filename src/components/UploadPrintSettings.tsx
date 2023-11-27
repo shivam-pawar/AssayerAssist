@@ -1,5 +1,3 @@
-import { Input } from "@mui/material";
-
 const UploadPrintSettings = () => {
   const handleFileUpload = (event: any) => {
     const file = event.target.files[0];
@@ -23,8 +21,15 @@ const UploadPrintSettings = () => {
 
   return (
     <div>
-      {/* <input type="file" onChange={handleFileUpload} /> */}
-      <Input type="file" onChange={handleFileUpload} />
+      <label className="block mb-2 text-sm font-medium text-gray-900">
+        Upload file
+      </label>
+      <input
+        className="text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+        id="file_input"
+        type="file"
+        onChange={handleFileUpload}
+      />
     </div>
   );
 };

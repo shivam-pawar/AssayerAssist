@@ -1,13 +1,12 @@
-import ReactDOM from "react-dom/client";
-import "./index.css";
-import PrintSettings from "./components/PrintSettings.tsx";
+import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
+import App from "./App.tsx";
 import store from "./store.ts";
-import InputCustomerDetails from "./components/InputCustomerDetails.tsx";
+//@ts-ignore
+const root = createRoot(document.getElementById("root"));
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
+root.render(
   <Provider store={store}>
-    {/* <PrintSettings /> */}
-    <InputCustomerDetails />
+    <App />
   </Provider>
 );

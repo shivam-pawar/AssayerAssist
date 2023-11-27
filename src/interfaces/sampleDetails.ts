@@ -13,7 +13,7 @@ export type sampleDetailsType = {
   nickel: number;
   rhodium: number;
   manganese: number;
-  tin: null;
+  tin: number;
   platinum: number;
   bismuth: number;
   palladium: number;

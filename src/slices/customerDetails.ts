@@ -1,13 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { customerDetailsType } from "../interfaces/customerDetails";
+import moment from "moment";
 
 const initialState: customerDetailsType = {
   serialNumber: 0,
   customerName: "",
   sampleName: "",
   weight: 0,
-  recordDate: new Date(),
-  sampleType: "",
+  recordDate: moment().toISOString(),
+  sampleType: "gold",
 };
 
 export const customerDetailsSlice = createSlice({
@@ -15,12 +16,10 @@ export const customerDetailsSlice = createSlice({
   initialState,
   reducers: {
     updateCustomerDetails: (state, action) => {
-      state.serialNumber = action.payload.serialNumber;
-      state.customerName = action.payload.customerName;
-      state.sampleName = action.payload.sampleName;
-      state.weight = action.payload.weight;
-      state.recordDate = action.payload.recordDate;
-      state.sampleType = action.payload.sampleType;
+      return {
+        ...state,
+        ...action.payload,
+      };
     },
   },
 });

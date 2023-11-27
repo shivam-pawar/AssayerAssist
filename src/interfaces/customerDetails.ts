@@ -3,6 +3,6 @@ export type customerDetailsType = {
   customerName: string;
   sampleName: string;
   weight: number;
-  recordDate: Date;
+  recordDate: string;
   sampleType: string;
 };

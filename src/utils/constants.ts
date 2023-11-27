@@ -1,0 +1,32 @@
+export const customerDetailsFields = [
+  "serialNumber",
+  "customerName",
+  "sampleName",
+  "weight",
+  "recordDate",
+  "sampleType",
+];
+
+export const sampleDetailsFields = [
+  "karat",
+  "gold",
+  "silver",
+  "copper",
+  "zinc",
+  "cadmium",
+  "iridium",
+  "ruthenium",
+  "osmium",
+  "lead",
+  "iron",
+  "nickel",
+  "rhodium",
+  "manganese",
+  "tin",
+  "platinum",
+  "bismuth",
+  "palladium",
+  "cobalt",
+  "rhenium",
+  "tungsten",
+];
