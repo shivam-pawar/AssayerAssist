@@ -29,7 +29,7 @@ const SampleDetailsTable: React.FC<{ data: sampleDetailsType }> = ({
   const thirdColumnElements = filteredElements.slice(2 * columnLength);
 
   return (
-    <div className="overflow-x-auto">
+    <div className="w-full overflow-x-auto">
       <div className="flex">
         <div className="w-1/3">
           <table className="min-w-full bg-white border border-gray-300">

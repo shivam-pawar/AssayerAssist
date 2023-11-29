@@ -21,7 +21,6 @@ const initialState = {
   palladium: "0.00",
   cobalt: "0.00",
   rhenium: "0.00",
-  tungsten: "0.00",
 };
 const formattedValue = (value: any) =>
   value >= 10 ? value.toFixed(2) : value.toFixed(2).padStart(5, "0");

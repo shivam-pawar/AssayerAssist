@@ -7,7 +7,9 @@ import SampleDetailsTable from "./SampleDetailsTable";
 import { sampleDetailsType } from "../interfaces/sampleDetails";
 import moment from "moment";
 
-const PrintCustomization: React.FC = () => {
+const PrintCustomization: React.FC<{ settingName: string }> = ({
+  settingName,
+}) => {
   const customerDetails: customerDetailsType = useSelector(
     (state: any) => state.customerDetails
   );
@@ -18,12 +20,12 @@ const PrintCustomization: React.FC = () => {
   // Dynamic content separate from settings
   const dynamicContent: { [key: number]: any } = {
     1: "Name: " + customerDetails.customerName,
-    2: "Date: " + moment(Date().toLocaleString()).format("Do MMMM YYYY"),
+    2: "Date: " + moment().format("Do MMMM YYYY"),
     3: "Sample: " + customerDetails.sampleName,
     4: "SR. No. " + customerDetails.serialNumber.toString(),
     5: "Weight: " + customerDetails.weight.toString() + " gram",
     6: <SampleDetailsTable data={sampleDetails} />,
-    7: "Time: " + moment(Date().toLocaleString()).format("hh:mm:ss a"),
+    7: "Time: " + moment().format("hh:mm:ss a"),
     8:
       customerDetails.sampleType === "gold"
         ? "Gold: " + sampleDetails.gold
@@ -35,7 +37,7 @@ const PrintCustomization: React.FC = () => {
     {
       id: 1,
       content: "",
-      x: 144,
+      x: 164,
       y: 50,
       fontSize: 18,
       bold: false,
@@ -43,7 +45,7 @@ const PrintCustomization: React.FC = () => {
     {
       id: 2,
       content: "",
-      x: 20,
+      x: 40,
       y: 100,
       fontSize: 18,
       bold: false,
@@ -51,7 +53,7 @@ const PrintCustomization: React.FC = () => {
     {
       id: 3,
       content: "",
-      x: 340,
+      x: 360,
       y: 50,
       fontSize: 18,
       bold: false,
@@ -59,7 +61,7 @@ const PrintCustomization: React.FC = () => {
     {
       id: 4,
       content: "",
-      x: 20,
+      x: 40,
       y: 50,
       fontSize: 18,
       bold: false,
@@ -67,7 +69,7 @@ const PrintCustomization: React.FC = () => {
     {
       id: 5,
       content: "",
-      x: 500,
+      x: 520,
       y: 50,
       fontSize: 18,
       bold: false,
@@ -75,7 +77,7 @@ const PrintCustomization: React.FC = () => {
     {
       id: 6,
       content: "",
-      x: 80,
+      x: 100,
       y: 200,
       fontSize: 16,
       bold: false,
@@ -83,7 +85,7 @@ const PrintCustomization: React.FC = () => {
     {
       id: 7,
       content: "",
-      x: 500,
+      x: 520,
       y: 100,
       fontSize: 18,
       bold: false,
@@ -91,7 +93,7 @@ const PrintCustomization: React.FC = () => {
     {
       id: 8,
       content: "",
-      x: 20,
+      x: 40,
       y: 150,
       fontSize: 24,
       bold: true,
@@ -99,7 +101,7 @@ const PrintCustomization: React.FC = () => {
     {
       id: 9,
       content: "",
-      x: 340,
+      x: 520,
       y: 150,
       fontSize: 24,
       bold: true,
@@ -107,7 +109,7 @@ const PrintCustomization: React.FC = () => {
     {
       id: 10,
       content: "",
-      x: 180,
+      x: 200,
       y: 150,
       fontSize: 24,
       bold: true,
@@ -117,7 +119,7 @@ const PrintCustomization: React.FC = () => {
   const [selectedTextId, setSelectedTextId] = useState<number | null>(null);
 
   useEffect(() => {
-    const savedTextElementsString = localStorage.getItem("textElements");
+    const savedTextElementsString = localStorage.getItem(settingName);
     if (savedTextElementsString) {
       const savedTextElements = JSON.parse(savedTextElementsString);
       setTextElements(savedTextElements);
@@ -125,7 +127,7 @@ const PrintCustomization: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("textElements", JSON.stringify(textElements));
+    localStorage.setItem(settingName, JSON.stringify(textElements));
   }, [textElements]);
 
   const handleTextDoubleClick = (textId: number) => {

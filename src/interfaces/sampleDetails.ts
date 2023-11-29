@@ -19,5 +19,4 @@ export type sampleDetailsType = {
   palladium: number;
   cobalt: number;
   rhenium: number;
-  tungsten: number;
 };

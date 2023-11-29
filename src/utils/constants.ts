@@ -28,5 +28,4 @@ export const sampleDetailsFields = [
   "palladium",
   "cobalt",
   "rhenium",
-  "tungsten",
 ];

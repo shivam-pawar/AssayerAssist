@@ -1,33 +1,16 @@
 import SampleTypeSelector from "./SampleTypeSelector";
 import { useDispatch, useSelector } from "react-redux";
 import { updateCustomerDetails } from "../slices/customerDetails";
-import { DatePicker } from "react-nice-dates";
-import "react-nice-dates/build/style.css";
-import { enIN } from "date-fns/locale";
-import { useState, useEffect } from "react";
 import InputSampleDetails from "./InputSampleDetails";
 import { customerDetailsType } from "../interfaces/customerDetails";
+import PrintButton from "./PrintButton";
 
 const InputCustomerDetails = () => {
   const dispatch = useDispatch();
   const customerDetails: customerDetailsType = useSelector(
     (state: any) => state.customerDetails
   );
-  const [date, setDate] = useState(new Date());
-  useEffect(() => {
-    updateDate();
-  }, [date]);
-  const updateDate = () => {
-    dispatch(
-      updateCustomerDetails({
-        ...customerDetails,
-        recordDate: String(date),
-      })
-    );
-  };
-
   const onChange = (e: any) => {
-    console.log(e.target.name + ": " + e.target.value);
     dispatch(
       updateCustomerDetails({
         ...customerDetails,
@@ -99,24 +82,8 @@ const InputCustomerDetails = () => {
         />
       </form>
       <SampleTypeSelector />
-      {/* <form className="m-3 p-1">
-        <div className="dark:bg-gray-50 border dark:border-gray-300 dark:text-gray-900 text-xl rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 disabled:text-gray-400">
-          <DatePicker
-            className="outline-none"
-            date={date}
-            //@ts-ignore
-            onDateChange={setDate}
-            locale={enIN}
-          >
-            {({ inputProps, focused }) => (
-              <input
-                className={"input" + (focused ? " -focused" : "")}
-                {...inputProps}
-              />
-            )}
-          </DatePicker>
-        </div>
-      </form> */}
+
+      <PrintButton />
       <InputSampleDetails />
     </div>
   );

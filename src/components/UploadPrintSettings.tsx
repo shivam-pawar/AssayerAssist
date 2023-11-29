@@ -9,9 +9,10 @@ const UploadPrintSettings = () => {
         for (const key in jsonData) {
           localStorage.setItem(key, jsonData[key]);
         }
-        alert("Data from the uploaded file has been saved to localStorage.");
+        alert(
+          "Data from the uploaded file has been saved to localStorage. Please refresh the page."
+        );
       } catch (error) {
-        console.error("Error parsing JSON file:", error);
         alert("Error: Invalid JSON file. Please upload a valid JSON file.");
       }
     };

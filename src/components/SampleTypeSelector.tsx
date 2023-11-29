@@ -1,10 +1,14 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateCustomerDetails } from "../slices/customerDetails";
+import { customerDetailsType } from "../interfaces/customerDetails";
 
 const SampleTypeSelector = () => {
   const dispatch = useDispatch();
-  const [value, setValue] = React.useState("gold"); // Set initial value to "gold"
+  const customerDetails: customerDetailsType = useSelector(
+    (state: any) => state.customerDetails
+  );
+  const [value, setValue] = React.useState(customerDetails?.sampleType); // Set initial value to "gold"
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);

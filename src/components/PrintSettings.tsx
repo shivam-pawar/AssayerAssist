@@ -1,16 +1,14 @@
 import React from "react";
-import PrintCustomization from "./PrintCustomization";
 import DownloadData from "./DownloadData";
 import UploadPrintSettings from "./UploadPrintSettings";
+import PrintPreview from "./PrintPreview";
 
 const PrintSettings: React.FC = () => {
   return (
     <div className="flex">
       <div className="w-[210mm] bg-white shadow-md h-[200mm] overflow-auto">
         <div className="overflow-auto h-full">
-          <div className="flex flex-col items-start justify-start text-center h-[297mm]">
-            <PrintCustomization />
-          </div>
+          <PrintPreview />
         </div>
       </div>
       <div className="flex flex-col p-3 m-3 justify-evenly">
