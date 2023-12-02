@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import SampleDetailsTable from "./SampleDetailsTable";
 import { sampleDetailsType } from "../interfaces/sampleDetails";
 import moment from "moment";
+import { capitalizeFirstLetter } from "../utils/helperMethods";
 
 const PrintCustomization: React.FC<{ settingName: string }> = ({
   settingName,
@@ -19,7 +20,7 @@ const PrintCustomization: React.FC<{ settingName: string }> = ({
 
   // Dynamic content separate from settings
   const dynamicContent: { [key: number]: any } = {
-    1: "Name: " + customerDetails.customerName,
+    1: "Name: " + capitalizeFirstLetter(customerDetails.customerName),
     2: "Date: " + moment().format("Do MMMM YYYY"),
     3: "Sample: " + customerDetails.sampleName,
     4: "SR. No. " + customerDetails.serialNumber.toString(),

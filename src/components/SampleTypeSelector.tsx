@@ -10,43 +10,37 @@ const SampleTypeSelector = () => {
   );
   const [value, setValue] = React.useState(customerDetails?.sampleType); // Set initial value to "gold"
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.value);
+  const handleChange = () => {
+    console.log("Clicked");
+    setValue(value === "gold" ? "silver" : "gold");
     dispatch(
       updateCustomerDetails({
-        sampleType: event.target.value,
+        sampleType: customerDetails?.sampleType === "gold" ? "silver" : "gold",
       })
     );
   };
 
   return (
     <div className="p-2">
-      <div className="flex items-center ps-4 border rounded border-gray-600">
-        <input
-          onChange={(e) => handleChange(e)}
-          id="gold-1"
-          type="radio"
-          value="gold"
-          name="sampleType"
-          checked={value === "gold"}
-          className="outline-none border-none focus:outline-none w-16 h-16 text-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-        />
-        <label className="w-full py-4 ms-2 pr-2 text-sm font-medium dark:text-gray-900 text-gray-300">
-          Gold
-        </label>
-
-        <input
-          onChange={(e) => handleChange(e)}
-          id="silver-2"
-          type="radio"
-          value="silver"
-          name="sampleType"
-          checked={value === "silver"}
-          className="outline-none border-none focus:outline-none w-16 h-16 text-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-        />
-        <label className="w-full py-4 ms-2 text-sm font-medium dark:text-gray-900 text-gray-300">
-          Silver
-        </label>
+      <div className="flex items-center text-black">
+        <button
+          className="bg-[#475569] text-white px-4 py-1 rounded-lg transition-transform transform-gpu hover:scale-105 hover:bg-[#374251]"
+          onClick={handleChange}
+        >
+          <img
+            width="50"
+            height="50"
+            src={
+              value === "gold"
+                ? "https://img.icons8.com/plasticine/50/gold-bars.png"
+                : "https://img.icons8.com/plasticine/50/silver-bars.png"
+            }
+            alt="silver-bars"
+            className={`transform-gpu origin-center transition-transform ${
+              value === "silver" ? "rotate-y-180 scale-x-[-1]" : ""
+            }`}
+          />
+        </button>
       </div>
     </div>
   );

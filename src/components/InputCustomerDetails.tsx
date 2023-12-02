@@ -4,6 +4,8 @@ import { updateCustomerDetails } from "../slices/customerDetails";
 import InputSampleDetails from "./InputSampleDetails";
 import { customerDetailsType } from "../interfaces/customerDetails";
 import PrintButton from "./PrintButton";
+import Autocomplete from "./Autocomplete";
+import moment from "moment";
 
 const InputCustomerDetails = () => {
   const dispatch = useDispatch();
@@ -15,6 +17,7 @@ const InputCustomerDetails = () => {
       updateCustomerDetails({
         ...customerDetails,
         [e.target.name]: e.target.value,
+        recordDate: moment().toISOString(),
       })
     );
   };
@@ -37,19 +40,7 @@ const InputCustomerDetails = () => {
       </form>
 
       <form className="m-3 p-1">
-        <input
-          type="text"
-          id="customerName"
-          name="customerName"
-          aria-describedby="helper-text-explanation"
-          className="dark:bg-gray-50 border dark:border-gray-300 dark:text-gray-900 text-xl rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 disabled:text-gray-400"
-          placeholder="Customer Name"
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-            onChange(event)
-          }
-          value={customerDetails.customerName}
-          required
-        />
+        <Autocomplete />
       </form>
       <form className="m-3 p-1">
         <input
@@ -82,7 +73,6 @@ const InputCustomerDetails = () => {
         />
       </form>
       <SampleTypeSelector />
-
       <PrintButton />
       <InputSampleDetails />
     </div>

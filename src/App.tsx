@@ -4,7 +4,6 @@ import PrintSettings from "./components/PrintSettings";
 import NavigationPanel from "./components/NavigationPanel";
 import Dashboard from "./components/Dashboard";
 import SearchRecord from "./components/SearchRecord";
-import PrintCustomization from "./components/PrintCustomization";
 
 const App = () => {
   const route = createBrowserRouter([
