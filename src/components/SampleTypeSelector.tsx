@@ -30,11 +30,7 @@ const SampleTypeSelector = () => {
           <img
             width="50"
             height="50"
-            src={
-              value === "gold"
-                ? "https://img.icons8.com/plasticine/50/gold-bars.png"
-                : "https://img.icons8.com/plasticine/50/silver-bars.png"
-            }
+            src={value === "gold" ? "/assets/gold.png" : "/assets/silver.png"}
             alt="silver-bars"
             className={`transform-gpu origin-center transition-transform ${
               value === "silver" ? "rotate-y-180 scale-x-[-1]" : ""

@@ -4,6 +4,7 @@ import PrintSettings from "./components/PrintSettings";
 import NavigationPanel from "./components/NavigationPanel";
 import Dashboard from "./components/Dashboard";
 import SearchRecord from "./components/SearchRecord";
+import Login from "./components/Login";
 
 const App = () => {
   const route = createBrowserRouter([
@@ -16,6 +17,7 @@ const App = () => {
         { path: "/print", element: <InputCustomerDetails /> },
         { path: "/settings", element: <PrintSettings /> },
         { path: "/search", element: <SearchRecord /> },
+        { path: "/login", element: <Login /> },
       ],
     },
   ]);

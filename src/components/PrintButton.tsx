@@ -81,12 +81,7 @@ class PrintButton extends PureComponent<
   reactToPrintTrigger = () => {
     return (
       <button className="hover:scale-105 m-2 ml-5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-        <img
-          width="40"
-          height="40"
-          src="https://img.icons8.com/ios-filled/40/EBEBEB/print.png"
-          alt="print"
-        />
+        <img width="40" height="40" src="/assets/print.png" alt="print" />
       </button>
     );
   };

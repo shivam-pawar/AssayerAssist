@@ -23,16 +23,11 @@ const NavigationPanel = () => {
             <img
               width="50"
               height="50"
-              src="https://img.icons8.com/ios-filled/50/EBEBEB/multiply.png"
+              src="/assets/multiply.png"
               alt="multiply"
             />
           ) : (
-            <img
-              width="40"
-              height="40"
-              src="https://img.icons8.com/ios-filled/40/menu--v1.png"
-              alt="menu--v1"
-            />
+            <img width="40" height="40" src="/assets/menu.png" alt="menu--v1" />
           )}
         </button>
       </div>
@@ -51,7 +46,7 @@ const NavigationPanel = () => {
                   width="30"
                   height="30"
                   className="mr-4"
-                  src="https://img.icons8.com/glyph-neue/30/EBEBEB/home--v1.png"
+                  src="/assets/home.png"
                   alt="home--v1"
                 />
                 Dashboard
@@ -64,7 +59,7 @@ const NavigationPanel = () => {
                   width="30"
                   height="30"
                   className="mr-4"
-                  src="https://img.icons8.com/ios-filled/30/EBEBEB/print.png"
+                  src="/assets/print-nav.png"
                   alt="print"
                 />
                 Print Record
@@ -77,7 +72,7 @@ const NavigationPanel = () => {
                   width="30"
                   height="30"
                   className="mr-4"
-                  src="https://img.icons8.com/ios-filled/30/EBEBEB/settings.png"
+                  src="/assets/settings.png"
                   alt="settings"
                 />
                 Print Settings
@@ -90,7 +85,7 @@ const NavigationPanel = () => {
                   width="30"
                   height="30"
                   className="mr-4 my-auto"
-                  src="https://img.icons8.com/ios-filled/30/EBEBEB/search--v1.png"
+                  src="/assets/search.png"
                   alt="search--v1"
                 />
                 Search
